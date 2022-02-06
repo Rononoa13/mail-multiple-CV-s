@@ -13,7 +13,7 @@ from email.message import Message
 from email.mime.text import MIMEText
 
 # If modifying these scopes, delete the file token.json.
-SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']  
+SCOPES = ['https://www.googleapis.com/auth/gmail.send']  
 
 def create_message(sender, to, subject, message_text):
     """Create a message for an email
@@ -72,8 +72,8 @@ if not creds or not creds.valid:
 # Call the Gmail API
 service = build('gmail', 'v1', credentials=creds)
 
-create_message('sumitluitel42@gmail.com', 'sumitluitel42@gmail.com', 'Test Test', 'This is message body')
-send_message(service, 'sumitluitel42@gmail.com', 'Test 1')
+message = create_message('sumitluitel42@gmail.com', 'sumitluitel42@gmail.com', 'Test Test', 'This is message body')
+send_message(service, 'sumitluitel42@gmail.com', message)
 
 # service = build('gmail', 'v1', credentials=creds)
 # results = service.users().labels().list(userId='me').execute()
