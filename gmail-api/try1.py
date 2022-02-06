@@ -72,7 +72,7 @@ if not creds or not creds.valid:
 # Call the Gmail API
 service = build('gmail', 'v1', credentials=creds)
 
-message = create_message('sumitluitel42@gmail.com', 'sumitluitel42@gmail.com', 'Test Test', 'This is message body')
+message = create_message('sumitluitel42@gmail.com', 'sumitluitel91@gmail.com, sumit@naamche.com', 'New Test', 'This is message body, I sent the mail to two recipients')
 send_message(service, 'sumitluitel42@gmail.com', message)
 
 # service = build('gmail', 'v1', credentials=creds)
