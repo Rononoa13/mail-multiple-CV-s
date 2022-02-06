@@ -1,5 +1,7 @@
 from __future__ import print_function
 
+import try1_credentials
+
 import os.path
 
 from google.auth.transport.requests import Request
@@ -49,7 +51,6 @@ def send_message(service, user_id, message):
     return message
   except HttpError as error:
     print('An error occurred: %s' % error)
-    # print(error)
 
 creds = None
     # The file token.json stores the user's access and refresh tokens, and is
@@ -70,15 +71,8 @@ if not creds or not creds.valid:
         token.write(creds.to_json())
 
 # Call the Gmail API
+
 service = build('gmail', 'v1', credentials=creds)
 
-message = create_message('sumitluitel42@gmail.com', 'sumitluitel42@gmail.com', 'Test Test', 'This is message body')
+message = create_message(try1_credentials.sender, try1_credentials.recipients, 'New Test', 'This is message body, I sent the mail to two recipients')
 send_message(service, 'sumitluitel42@gmail.com', message)
-
-# service = build('gmail', 'v1', credentials=creds)
-# results = service.users().labels().list(userId='me').execute()
-# labels = results.get('labels', [])
-
-# print('Labels:')
-# for label in labels:
-#     print(label['name'])
