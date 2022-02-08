@@ -1,3 +1,4 @@
+from email.message import Message
 from getting_started import get_service
 
 import os.path
@@ -35,3 +36,4 @@ if __name__ == '__main__':
 
     message = service.users().messages().send(userId='me', body={'raw':raw_string}).execute()
     print(message)
+    print("Message sent Successfully")
