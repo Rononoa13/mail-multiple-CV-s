@@ -37,3 +37,5 @@ if __name__ == '__main__':
     message = service.users().messages().send(userId='me', body={'raw':raw_string}).execute()
     print(message)
     print("Message sent Successfully")
+    print(message)
+    print("Message sent Successfully")
